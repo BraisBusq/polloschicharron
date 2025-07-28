@@ -75,16 +75,10 @@ public class ProductoServicesImpl implements ProductoServices{
 	@Override
 	@Transactional
 	public void delete(Long id) {
-		
-		boolean existe = productoPLRepository.existsById(id);
-		
-		if(!existe) {
-			throw new IllegalStateException("El producto con ID [" + id + "] no existe.");	
-		} else {
-			Optional<ProductoPL> optionalPL = productoPLRepository.findById(id);
-			optionalPL.get().setDescatalogado(true);	
-		}
+		ProductoPL producto = productoPLRepository.findById(id)
+			.orElseThrow(() -> new IllegalStateException("El producto con ID [" + id + "] no existe."));
 
+		producto.setDescatalogado(true);
 	}
 
 	@Override
