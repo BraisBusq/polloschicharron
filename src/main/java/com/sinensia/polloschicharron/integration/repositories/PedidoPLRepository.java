@@ -24,7 +24,7 @@ public interface PedidoPLRepository extends JpaRepository<PedidoPL, Long> {
 		 + "            WHEN p.estado = EstadoPedidoPL.SERVIDO THEN 'SERVIDO'                     "
 		 + "            WHEN p.estado = EstadoPedidoPL.CANCELADO THEN 'CANCELADO'                 "
 		 + "          	ELSE NULL "
-		 + "        END )    "
+		 + "END )    "
 		 + "FROM   PedidoPL p   ")
 	List<PedidoDTO1> findDTO1();
 
