@@ -13,7 +13,7 @@ public abstract class Persona {
 	private DatosContacto datosContacto;
 	
 	public Persona() {
-		
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public Long getId() {

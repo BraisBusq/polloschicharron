@@ -28,7 +28,7 @@ public class RequestLogPL {
 	private int statusCode;
 	
 	public RequestLogPL() {
-		
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public Long getId() {

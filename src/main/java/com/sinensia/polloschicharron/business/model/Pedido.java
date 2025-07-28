@@ -16,7 +16,7 @@ public class Pedido {
 	private List<LineaPedido> lineas;
 	
 	public Pedido() {
-		
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public Long getId() {

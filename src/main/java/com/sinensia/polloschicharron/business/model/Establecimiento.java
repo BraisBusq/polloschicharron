@@ -10,7 +10,7 @@ public class Establecimiento {
 	private DatosContacto datosContacto;
 	
 	public Establecimiento() {
-		
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public String getNIF() {

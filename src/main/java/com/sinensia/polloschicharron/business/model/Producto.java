@@ -14,7 +14,7 @@ public class Producto {
 	private String descripcion;
 	
 	public Producto() {
-		
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public Long getId() {

@@ -9,7 +9,7 @@ public class DatosContacto {
 	private String email;
 	
 	public DatosContacto() {
-		
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public String getTelefono() {

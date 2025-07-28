@@ -5,7 +5,7 @@ public class Empleado extends Persona {
 	private String licenciaManipuladorAlimentos;
 
 	public Empleado() {
-		
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public String getLicenciaManipuladorAlimentos() {

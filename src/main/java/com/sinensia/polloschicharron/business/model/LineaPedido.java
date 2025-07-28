@@ -7,7 +7,7 @@ public class LineaPedido {
 	private int cantidad;
 	
 	public LineaPedido() {
-
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public Producto getProducto() {

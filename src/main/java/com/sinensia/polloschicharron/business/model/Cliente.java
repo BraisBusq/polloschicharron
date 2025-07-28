@@ -5,7 +5,7 @@ public class Cliente extends Persona {
 	private boolean clienteGold;
 	
 	public Cliente() {
-		
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public boolean isClienteGold() {

@@ -9,7 +9,7 @@ public class Direccion {
 	private String pais;
 	
 	public Direccion() {
-		
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public String getDireccion() {
