@@ -12,7 +12,7 @@ public abstract class Persona {
 	private Direccion direccion;
 	private DatosContacto datosContacto;
 	
-	public Persona() {
+	protected Persona() {
 		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
