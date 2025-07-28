@@ -8,6 +8,7 @@ class PolloschicharronApplicationTests {
 
 	@Test
 	void contextLoads() {
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 }

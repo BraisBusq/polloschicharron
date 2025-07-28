@@ -23,7 +23,7 @@ public class RolePL implements Serializable{
 	private Role name;
 
 	public RolePL() {
-		
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public Long getId() {

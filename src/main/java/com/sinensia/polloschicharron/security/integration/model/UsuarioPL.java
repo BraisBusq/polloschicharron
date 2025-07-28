@@ -73,7 +73,7 @@ public class UsuarioPL implements Serializable{
 	private Set<RolePL> roles = new HashSet<>();
 
 	public UsuarioPL() {
-		
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public Long getId() {
