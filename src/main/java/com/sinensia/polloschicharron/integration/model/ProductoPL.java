@@ -37,7 +37,7 @@ public class ProductoPL {
 	private String descripcion;
 	
 	public ProductoPL() {
-		
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public Long getId() {

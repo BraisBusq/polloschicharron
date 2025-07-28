@@ -18,7 +18,7 @@ public class FamiliaPL {
 	private String nombre;
 	
 	public FamiliaPL() {
-		
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public Long getId() {

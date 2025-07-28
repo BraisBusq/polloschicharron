@@ -12,7 +12,7 @@ public class DatosContactoPL {
 	private String email;
 	
 	public DatosContactoPL() {
-		
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public String getTelefono() {

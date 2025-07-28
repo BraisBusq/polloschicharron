@@ -10,9 +10,9 @@ public class ClientePL extends PersonaPL {
 
 	@Column(name="GOLD")
 	private boolean clienteGold;
-	
-	public ClientePL() {
 		
+	public ClientePL() {
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public boolean isClienteGold() {

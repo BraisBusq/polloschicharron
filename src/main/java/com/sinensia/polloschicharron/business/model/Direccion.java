@@ -2,7 +2,7 @@ package com.sinensia.polloschicharron.business.model;
 
 public class Direccion {
 
-	private String direccion;
+	private String calle;
 	private String poblacion;
 	private String codigoPostal;
 	private String provincia;
@@ -12,12 +12,12 @@ public class Direccion {
 		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
-	public String getDireccion() {
-		return direccion;
+	public String getCalle() {
+		return calle;
 	}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+	public void setCalle(String calle) {
+		this.calle = calle;
 	}
 
 	public String getPoblacion() {

@@ -56,7 +56,7 @@ public class PedidoPL {
 	private List<LineaPedidoPL> lineas;
 	
 	public PedidoPL() {
-		
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public Long getId() {

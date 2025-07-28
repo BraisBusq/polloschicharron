@@ -25,7 +25,7 @@ public class EstablecimientoPL {
 	private DatosContactoPL datosContacto;
 	
 	public EstablecimientoPL() {
-		
+		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
 	public String getNIF() {
