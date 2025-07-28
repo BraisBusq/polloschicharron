@@ -49,7 +49,10 @@ public class SecurityConfig {
 	}
 	
 	@Bean
-    SecurityFilterChain filterChain(HttpSecurity http, MvcRequestMatcher.Builder mvc) throws Exception {
+    SecurityFilterChain filterChain(HttpSecurity http,
+                                 MvcRequestMatcher.Builder mvc,
+                                 JwtAuthEntryPoint unauthorizedHandler,
+                                 UserDetailsService userDetailsService) throws Exception {
 
         http.csrf(csrf -> csrf.disable())
             

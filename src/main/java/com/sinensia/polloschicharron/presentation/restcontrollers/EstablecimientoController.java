@@ -58,7 +58,7 @@ public class EstablecimientoController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> createEstablecimiento(@RequestBody Establecimiento establecimiento, UriComponentsBuilder ucb){
+	public ResponseEntity createEstablecimiento(@RequestBody Establecimiento establecimiento, UriComponentsBuilder ucb){
 		
 		try {
 			establecimientoServices.create(establecimiento);
