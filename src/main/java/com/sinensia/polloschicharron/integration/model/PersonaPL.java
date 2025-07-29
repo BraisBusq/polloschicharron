@@ -32,7 +32,7 @@ public abstract class PersonaPL {
 	@Embedded
 	private DatosContactoPL datosContacto;
 	
-	public PersonaPL() {
+	protected PersonaPL() {
 		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
 	}
 
