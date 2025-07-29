@@ -1,5 +1,6 @@
 package com.sinensia.polloschicharron.security;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -17,22 +18,29 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
 import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
     private final UserDetailsService userDetailsService;
     private final JwtAuthEntryPoint unauthorizedHandler;
+     private final JwtUtils jwtUtils;
+        private final UserDetailsServiceImpl userDetailsServiceImpl;
 
     public SecurityConfig(UserDetailsService userDetailsService,
-                          JwtAuthEntryPoint unauthorizedHandler) {
+                          JwtAuthEntryPoint unauthorizedHandler,
+                          JwtUtils jwtUtils,
+                          UserDetailsServiceImpl userDetailsServiceImpl) {
         this.userDetailsService = userDetailsService;
         this.unauthorizedHandler = unauthorizedHandler;
+        this.jwtUtils = jwtUtils;
+        this.userDetailsServiceImpl = userDetailsServiceImpl;
     }
 
     @Bean
     JwtAuthTokenFilter authenticationTokenFilterBean() {
-        return new JwtAuthTokenFilter();
+        return new JwtAuthTokenFilter(jwtUtils, userDetailsServiceImpl);
     }
 
     @Bean
