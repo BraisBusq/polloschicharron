@@ -15,7 +15,7 @@ public interface EstablecimientoServices {
 	 */
 	void create(Establecimiento establecimiento);
 	
-	Optional<Establecimiento> read(String NIF);
+	Optional<Establecimiento> read(String nif);
 	
 	/**
 	 * Si el NIF es null o no existe lanza IllegalStateException

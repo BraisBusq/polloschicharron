@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Establecimiento {
 	
-	private String NIF; // business key
+	private String nif; // business key
 	private String nombre;
 	private Direccion direccion;
 	private DatosContacto datosContacto;
@@ -14,11 +14,11 @@ public class Establecimiento {
 	}
 
 	public String getNIF() {
-		return NIF;
+		return nif;
 	}
 
-	public void setNIF(String NIF) {
-		this.NIF = NIF;
+	public void setNIF(String nif) {
+		this.nif = nif;
 	}
 
 	public String getNombre() {
@@ -47,7 +47,7 @@ public class Establecimiento {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(NIF);
+		return Objects.hash(nif);
 	}
 
 	@Override
@@ -59,12 +59,12 @@ public class Establecimiento {
 		if (getClass() != obj.getClass())
 			return false;
 		Establecimiento other = (Establecimiento) obj;
-		return Objects.equals(NIF, other.NIF);
+		return Objects.equals(nif, other.nif);
 	}
 
 	@Override
 	public String toString() {
-		return "Establecimiento [NIF=" + NIF + ", nombre=" + nombre + ", direccion=" + direccion + ", datosContacto="
+		return "Establecimiento [NIF=" + nif + ", nombre=" + nombre + ", direccion=" + direccion + ", datosContacto="
 				+ datosContacto + "]";
 	}
 

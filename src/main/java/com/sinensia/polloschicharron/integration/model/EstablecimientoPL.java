@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 public class EstablecimientoPL {
 	
 	@Id
-	private String NIF; // business key
+	private String nif; // business key
 	
 	@Column(name="NOMBRE_COMERCIAL")
 	private String nombre;
@@ -29,11 +29,11 @@ public class EstablecimientoPL {
 	}
 
 	public String getNIF() {
-		return NIF;
+		return nif;
 	}
 
-	public void setNIF(String NIF) {
-		this.NIF = NIF;
+	public void setNIF(String nif) {
+		this.nif = nif;
 	}
 
 	public String getNombre() {
@@ -62,7 +62,7 @@ public class EstablecimientoPL {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(NIF);
+		return Objects.hash(nif);
 	}
 
 	@Override
@@ -74,12 +74,12 @@ public class EstablecimientoPL {
 		if (getClass() != obj.getClass())
 			return false;
 		EstablecimientoPL other = (EstablecimientoPL) obj;
-		return Objects.equals(NIF, other.NIF);
+		return Objects.equals(nif, other.nif);
 	}
 
 	@Override
 	public String toString() {
-		return "Establecimiento [NIF=" + NIF + ", nombre=" + nombre + ", direccion=" + direccion + ", datosContacto="
+		return "Establecimiento [NIF=" + nif + ", nombre=" + nombre + ", direccion=" + direccion + ", datosContacto="
 				+ datosContacto + "]";
 	}
 

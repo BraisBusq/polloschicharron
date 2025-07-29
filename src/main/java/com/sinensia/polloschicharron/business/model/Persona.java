@@ -5,7 +5,7 @@ import java.util.Objects;
 public abstract class Persona {
 
 	private Long id;
-	private String DNI;
+	private String dni;
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
@@ -29,11 +29,11 @@ public abstract class Persona {
 
 
 	public String getDNI() {
-		return DNI;
+		return dni;
 	}
 
-	public void setDNI(String dNI) {
-		DNI = dNI;
+	public void setDNI(String dni) {
+		this.dni = dni;
 	}
 
 	public String getNombre() {
@@ -78,7 +78,7 @@ public abstract class Persona {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(DNI);
+		return Objects.hash(dni);
 	}
 
 	@Override
@@ -90,12 +90,12 @@ public abstract class Persona {
 		if (getClass() != obj.getClass())
 			return false;
 		Persona other = (Persona) obj;
-		return Objects.equals(DNI, other.DNI);
+		return Objects.equals(dni, other.dni);
 	}
 
 	@Override
 	public String toString() {
-		return "Persona [DNI=" + DNI + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
+		return "Persona [DNI=" + dni + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
 				+ ", direccion=" + direccion + ", datosContacto=" + datosContacto + "]";
 	}
 

@@ -29,12 +29,12 @@ public class EstablecimientoServicesImpl implements EstablecimientoServices {
 	@Transactional
 	public void create(Establecimiento establecimiento) {
 
-		String NIF = establecimiento.getNIF();
+		String nif = establecimiento.getNIF();
 		
-		boolean existe = establecimientoPLRepository.existsById(NIF);
+		boolean existe = establecimientoPLRepository.existsById(nif);
 		
-		if(NIF == null || existe) {
-			throw new IllegalStateException("El NIF [" + NIF + "] no es válido o ya existe.");
+		if(nif == null || existe) {
+			throw new IllegalStateException("El NIF [" + nif + "] no es válido o ya existe.");
 		}
 		
 		EstablecimientoPL establecimientoPL = mapper.map(establecimiento, EstablecimientoPL.class);
@@ -44,9 +44,9 @@ public class EstablecimientoServicesImpl implements EstablecimientoServices {
 	}
 
 	@Override
-	public Optional<Establecimiento> read(String NIF) {
+	public Optional<Establecimiento> read(String nif) {
 		
-		Optional<EstablecimientoPL> optionalPL = establecimientoPLRepository.findById(NIF);
+		Optional<EstablecimientoPL> optionalPL = establecimientoPLRepository.findById(nif);
 		
 		return optionalPL.isEmpty() ? Optional.empty() : Optional.of(mapper.map(optionalPL.get(), Establecimiento.class));
 	}
@@ -55,12 +55,12 @@ public class EstablecimientoServicesImpl implements EstablecimientoServices {
 	@Transactional
 	public void update(Establecimiento establecimiento) {
 
-		String NIF = establecimiento.getNIF();
+		String nif = establecimiento.getNIF();
 		
-		boolean existe = establecimientoPLRepository.existsById(NIF);
+		boolean existe = establecimientoPLRepository.existsById(nif);
 		
-		if(NIF == null || !existe) {
-			throw new IllegalStateException("El establecimiento con NIF [" + NIF + "] no existe.");
+		if(nif == null || !existe) {
+			throw new IllegalStateException("El establecimiento con NIF [" + nif + "] no existe.");
 		}
 		
 		establecimientoPLRepository.save(mapper.map(establecimiento, EstablecimientoPL.class));
