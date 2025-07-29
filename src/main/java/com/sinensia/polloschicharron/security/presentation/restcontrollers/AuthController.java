@@ -33,14 +33,16 @@ public class AuthController {
 
 	private Logger logger = LoggerFactory.getLogger(AuthController.class);
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
+private final JwtUtils jwtUtils;
 
-    @Autowired
-    private JwtUtils jwtUtils;
+public AuthController(AuthenticationManager authenticationManager, JwtUtils jwtUtils) {
+    this.authenticationManager = authenticationManager;
+    this.jwtUtils = jwtUtils;
+}
 
     @PostMapping("/signin")
-    public ResponseEntity authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<JwtResponse> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
     	Authentication authentication = null;
     	
