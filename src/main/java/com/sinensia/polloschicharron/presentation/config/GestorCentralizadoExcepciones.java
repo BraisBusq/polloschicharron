@@ -34,21 +34,20 @@ public class GestorCentralizadoExcepciones extends ResponseEntityExceptionHandle
 
 	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
 	public ResponseEntity<Object> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex){
-	
-		String tipoRequerido = (ex.getRequiredType() != null) 
-                          ? ex.getRequiredType().getSimpleName() 
-                          : "desconocido";
-		String tipoEntrante;
-			if (ex.getValue() != null) {
-				tipoEntrante = ex.getValue().getClass().getSimpleName();
-			} else {
-				tipoEntrante = "null";
-			}
-		
-		HttpErrorCustomizado httpErrorCustomizado = new HttpErrorCustomizado("El valor [" + ex.getValue() + "] es de tipo [" + tipoEntrante+ "]. Se requiere un tipo [" + tipoRequerido + "]");
-		
+
+		Class<?> requiredType = ex.getRequiredType();  // guardamos el resultado
+		String tipoRequerido = (requiredType != null) ? requiredType.getSimpleName() : "desconocido";
+
+		Object value = ex.getValue();  // guardamos el resultado
+		String tipoEntrante = (value != null) ? value.getClass().getSimpleName() : "null";
+
+		HttpErrorCustomizado httpErrorCustomizado = new HttpErrorCustomizado(
+			"El valor [" + value + "] es de tipo [" + tipoEntrante + "]. Se requiere un tipo [" + tipoRequerido + "]"
+		);
+
 		return ResponseEntity.badRequest().body(httpErrorCustomizado);
 	}
+
 	
 	// **********************************************************************************
 	
