@@ -17,11 +17,15 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class JwtAuthTokenFilter extends OncePerRequestFilter{
 
-	 @Autowired
-	 private JwtUtils jwtUtils;
-	 
-	 @Autowired
-	 private UserDetailsServiceImpl userDetailsService;
+	
+    private final JwtUtils jwtUtils;
+    private final UserDetailsServiceImpl userDetailsService;
+
+    // Constructor con inyección de dependencias
+    public JwtAuthTokenFilter(JwtUtils jwtUtils, UserDetailsServiceImpl userDetailsService) {
+        this.jwtUtils = jwtUtils;
+        this.userDetailsService = userDetailsService;
+    }
 	 	 	
 	 @Override
 	 protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
