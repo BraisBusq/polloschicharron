@@ -3,6 +3,7 @@ package com.sinensia.polloschicharron.integration.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table(name="CLIENTES")
@@ -27,5 +28,20 @@ public class ClientePL extends PersonaPL {
 	public String toString() {
 		return "Cliente [clienteGold=" + clienteGold + ", toString()=" + super.toString() + "]";
 	}
+
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true; // misma referencia
+        if (o == null || getClass() != o.getClass()) return false; // distinto tipo
+        if (!super.equals(o)) return false; // compara campos de PersonaPL
+
+        ClientePL clientePL = (ClientePL) o;
+        return clienteGold == clientePL.clienteGold;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), clienteGold);
+    }
 	
 }
