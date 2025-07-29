@@ -47,7 +47,7 @@ public class FamiliaController {
 	}
 	
 	@PostMapping
-	public ResponseEntity createFamilia(@RequestBody Familia familia, UriComponentsBuilder ucb){
+	public ResponseEntity<Void> createFamilia(@RequestBody Familia familia, UriComponentsBuilder ucb){
 		
 		Long id = null;
 		

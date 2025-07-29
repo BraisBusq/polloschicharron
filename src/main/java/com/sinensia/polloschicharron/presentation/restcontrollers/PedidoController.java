@@ -47,7 +47,7 @@ public class PedidoController {
 	}
 	
 	@PostMapping
-	public ResponseEntity createPedido(@RequestBody Pedido pedido, UriComponentsBuilder ucb){
+	public ResponseEntity<Void> createPedido(@RequestBody Pedido pedido, UriComponentsBuilder ucb){
 		
 		Long id = null;
 		

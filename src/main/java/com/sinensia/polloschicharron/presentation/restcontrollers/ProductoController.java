@@ -54,7 +54,7 @@ public class ProductoController {
 	}
 	
 	@PostMapping
-	public ResponseEntity createProducto(@RequestBody Producto producto, UriComponentsBuilder ucb){
+	public ResponseEntity<Void> createProducto(@RequestBody Producto producto, UriComponentsBuilder ucb){
 		
 		Long id = null;
 		
