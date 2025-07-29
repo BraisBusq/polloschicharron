@@ -15,7 +15,7 @@ import com.sinensia.polloschicharron.integration.model.ProductoPL;
 
 @DataJpaTest
 @Sql(scripts={"classpath:data/schema_test.sql","classpath:data/data_test.sql"})
-public class ProductoPLRepositoryTest {
+class ProductoPLRepositoryTest {
 
 	@Autowired
 	private ProductoPLRepository productoPLRepository;
@@ -69,9 +69,9 @@ public class ProductoPLRepositoryTest {
 		ProductoPL producto2PL = new ProductoPL();
 		producto2PL.setId(101L);
 
-		Long[] ArrayDeIds = {100L, 101L};
+		Long[] arrayDeIds  = {100L, 101L};
 		
-		productoPLRepository.incrementarPrecio(100, ArrayDeIds);
+		productoPLRepository.incrementarPrecio(100, arrayDeIds );
 		
 		double precioProducto1 = productoPLRepository.findById(100L).get().getPrecio();
 		double precioProducto2 = productoPLRepository.findById(101L).get().getPrecio();

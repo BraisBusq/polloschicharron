@@ -65,7 +65,11 @@ public class PedidoServicesImpl implements PedidoServices{
 	
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
+		 if (!pedidoPLRepository.existsById(id)) {
+        throw new IllegalStateException("El pedido con ID [" + id + "] no existe.");
+    }
+
+    pedidoPLRepository.deleteById(id);
 		
 	}
 

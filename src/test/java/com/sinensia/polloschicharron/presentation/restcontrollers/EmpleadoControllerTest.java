@@ -25,7 +25,7 @@ import com.sinensia.polloschicharron.presentation.config.HttpErrorCustomizado;
 @WebMvcTest(value=EmpleadoController.class, 
             excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = AuditFilter.class))
 @WithMockUser(username="u1", roles={"SUPER_ADMIN", "ADMIN", "USER"})
-public class EmpleadoControllerTest extends AbstractControllerTest{
+class EmpleadoControllerTest extends AbstractControllerTest{
 
 	@MockitoBean
 	private EmpleadoServices empleadoServices;

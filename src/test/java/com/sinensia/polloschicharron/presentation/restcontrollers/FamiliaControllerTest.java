@@ -36,7 +36,7 @@ import com.sinensia.polloschicharron.presentation.config.HttpErrorCustomizado;
 
 @WithMockUser(username="u1", roles={"SUPER_ADMIN", "ADMIN", "USER"})
 
-public class FamiliaControllerTest extends AbstractControllerTest{
+class FamiliaControllerTest extends AbstractControllerTest{
 
 	@MockitoBean
 	private FamiliaServices familiaServices;

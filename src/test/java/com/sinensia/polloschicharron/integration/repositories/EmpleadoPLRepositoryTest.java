@@ -14,7 +14,7 @@ import com.sinensia.polloschicharron.business.model.dtos.EmpleadoDTO2;
 
 @DataJpaTest
 @Sql(scripts={"classpath:data/schema_test.sql","classpath:data/data_test.sql"})
-public class EmpleadoPLRepositoryTest {
+class EmpleadoPLRepositoryTest {
 	
 	@Autowired
 	private EmpleadoPLRepository empleadoPLRepository;

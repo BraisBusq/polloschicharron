@@ -22,6 +22,7 @@ public class EmpleadoPL extends PersonaPL {
 		this.licenciaManipuladorAlimentos = licenciaManipuladorAlimentos;
 	}
 
+	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true; // misma referencia
 		if (!(o instanceof EmpleadoPL)) return false; // tipo diferente

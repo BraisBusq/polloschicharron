@@ -62,11 +62,11 @@ public class SecurityConfig {
     SecurityFilterChain filterChain(HttpSecurity http,
                                     MvcRequestMatcher.Builder mvc) throws Exception {
 
-        http.csrf(csrf -> csrf.disable())
-            .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
-            .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.sameOrigin()))
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .authorizeHttpRequests(auth ->
+        http.csrf(csrf -> csrf.disable());
+        http.exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler));
+        http.headers().frameOptions().sameOrigin();
+        http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+        http.authorizeHttpRequests(auth ->
                 auth
                     .requestMatchers(HttpMethod.POST, "/auth/signin/**").permitAll()
                     .requestMatchers("/WEB-INF/**").permitAll()

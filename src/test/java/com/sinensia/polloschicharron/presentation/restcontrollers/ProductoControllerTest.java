@@ -19,7 +19,7 @@ import com.sinensia.polloschicharron.business.services.ProductoServices;
 @WebMvcTest(value=ProductoController.class, 
             excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = AuditFilter.class))
 @WithMockUser(username="u1", roles={"SUPER_ADMIN", "ADMIN", "USER"})
-public class ProductoControllerTest extends AbstractControllerTest{
+class ProductoControllerTest extends AbstractControllerTest{
 
 	@MockitoBean
 	private ProductoServices productoServices;

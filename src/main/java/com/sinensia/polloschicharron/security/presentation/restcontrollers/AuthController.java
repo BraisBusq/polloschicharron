@@ -60,7 +60,7 @@ public AuthController(AuthenticationManager authenticationManager, JwtUtils jwtU
         
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
-                .collect(Collectors.toList());
+                .toList();
 
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),
