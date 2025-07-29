@@ -26,40 +26,33 @@ public class UserDetailsImpl implements UserDetails{
 	private boolean enabled;
 	private Collection<? extends GrantedAuthority> authorities;
 	
-	private UserDetailsImpl(Long id,
-			   			    String username,
-			   			    String password,
-                            String firstName,
-                            String lastName,
-                            String email,
-                            boolean enabled,
-                            Collection<? extends GrantedAuthority> authorities) {
+	private UserDetailsImpl(UserDetailsBuilder builder) {
+        this.id = builder.id;
+        this.username = builder.username;
+        this.password = builder.password;
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.email = builder.email;
+        this.enabled = builder.enabled;
+        this.authorities = builder.authorities;
+    }
 
-				this.id = id;
-				this.username = username;
-				this.password = password;
-				this.firstName = firstName;
-				this.lastName = lastName;
-				this.email = email;
-				this.enabled = enabled;
-				this.authorities = authorities;
-	}
-	
-	public static UserDetailsImpl build(UsuarioPL usuarioPL) {
-		
-		List<GrantedAuthority> roles = usuarioPL.getRoles().stream()
+    public static UserDetailsImpl build(UsuarioPL usuarioPL) {
+        List<GrantedAuthority> roles = usuarioPL.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName().name()))
                 .collect(Collectors.toList());
-		
-		return new UserDetailsImpl(usuarioPL.getId(), 
-								   usuarioPL.getUsername(),
-								   usuarioPL.getPassword(),
-								   usuarioPL.getFirstName(),
-								   usuarioPL.getLastName(),
-								   usuarioPL.getEmail(),
-								   usuarioPL.getEnabled(),
-								   roles);
-	}
+
+        return new UserDetailsImpl.UserDetailsBuilder()
+                .id(usuarioPL.getId())
+                .username(usuarioPL.getUsername())
+                .password(usuarioPL.getPassword())
+                .firstName(usuarioPL.getFirstName())
+                .lastName(usuarioPL.getLastName())
+                .email(usuarioPL.getEmail())
+                .enabled(usuarioPL.getEnabled())
+                .authorities(roles)
+                .build();
+    }
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -96,5 +89,60 @@ public class UserDetailsImpl implements UserDetails{
 	public String getEmail() {
 		return email;
 	}
+
+	public static class UserDetailsBuilder {
+        private Long id;
+        private String username;
+        private String password;
+        private String firstName;
+        private String lastName;
+        private String email;
+        private boolean enabled;
+        private Collection<? extends GrantedAuthority> authorities;
+
+        public UserDetailsBuilder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public UserDetailsBuilder username(String username) {
+            this.username = username;
+            return this;
+        }
+
+        public UserDetailsBuilder password(String password) {
+            this.password = password;
+            return this;
+        }
+
+        public UserDetailsBuilder firstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public UserDetailsBuilder lastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public UserDetailsBuilder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public UserDetailsBuilder enabled(boolean enabled) {
+            this.enabled = enabled;
+            return this;
+        }
+
+        public UserDetailsBuilder authorities(Collection<? extends GrantedAuthority> authorities) {
+            this.authorities = authorities;
+            return this;
+        }
+
+        public UserDetailsImpl build() {
+            return new UserDetailsImpl(this);
+        }
+    }
 
 }

@@ -60,31 +60,50 @@ public class SecurityConfig {
     }
 
     @Bean
-    SecurityFilterChain filterChain(HttpSecurity http,
-                                    MvcRequestMatcher.Builder mvc) throws Exception {
-
+    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        // Deshabilitar CSRF
         http.csrf(csrf -> csrf.disable());
-        http.exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler));
-        http.headers().frameOptions().sameOrigin();
-        http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-        http.authorizeHttpRequests(auth ->
-                auth
-                    .requestMatchers(HttpMethod.POST, "/auth/signin/**").permitAll()
-                    .requestMatchers("/WEB-INF/**").permitAll()
-                    .requestMatchers("/img/**", "/css/**", "/js/**").permitAll()
-                    .requestMatchers("/favicon.ico").permitAll()
-                    .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                    .requestMatchers("/app/**").permitAll()
-                    .requestMatchers("/admin/auditoria/**").permitAll()
-                    .requestMatchers("/h2-console/**").permitAll()
-                    .anyRequest().authenticated()
-            );
 
+        // Manejo de excepciones y autenticación
+        http.exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler));
+
+        // Configuración de encabezados de seguridad
+        http.headers(headers -> {
+            // Configuración de CSP
+            headers.contentSecurityPolicy(csp -> csp.policyDirectives("default-src 'self'; script-src 'self'; object-src 'none';"));
+
+            // Configuración de HSTS
+            headers.httpStrictTransportSecurity(hsts -> hsts.includeSubDomains(true).maxAgeInSeconds(31536000)); // 1 año
+
+            // Configuración de frameOptions
+            headers.frameOptions(frame -> frame.deny()); // Bloquear la opción de embeber en frames
+        });
+
+        // Gestión de sesiones
+        http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+
+        // Autorización de peticiones
+        http.authorizeHttpRequests(auth -> auth
+                .requestMatchers(HttpMethod.POST, "/auth/signin/**").permitAll()
+                .requestMatchers("/WEB-INF/**").permitAll()
+                .requestMatchers("/img/**", "/css/**", "/js/**").permitAll()
+                .requestMatchers("/favicon.ico").permitAll()
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                .requestMatchers("/app/**").permitAll()
+                .requestMatchers("/admin/auditoria/**").permitAll()
+                .requestMatchers("/h2-console/**").permitAll()
+                .anyRequest().authenticated()
+        );
+
+        // Proveedor de autenticación
         http.authenticationProvider(authenticationProvider());
+
+        // Filtro de autenticación JWT
         http.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
+
 
     private DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
