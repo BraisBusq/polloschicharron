@@ -12,7 +12,7 @@ public class DatosContactoPL {
 	private String email;
 	
 	public DatosContactoPL() {
-		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
+		// Constructor vacío requerido por JPA
 	}
 
 	public String getTelefono() {

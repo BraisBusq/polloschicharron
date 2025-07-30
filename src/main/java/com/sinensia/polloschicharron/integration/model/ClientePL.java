@@ -13,7 +13,7 @@ public class ClientePL extends PersonaPL {
 	private boolean clienteGold;
 		
 	public ClientePL() {
-		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
+		// Constructor vacío requerido por JPA
 	}
 
 	public boolean isClienteGold() {
