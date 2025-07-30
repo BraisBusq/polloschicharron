@@ -15,7 +15,7 @@ public class LineaPedidoPL {
 	private int cantidad;
 	
 	public LineaPedidoPL() {
-		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
+		// Constructor vacío requerido por JPA
 	}
 
 	public ProductoPL getProducto() {

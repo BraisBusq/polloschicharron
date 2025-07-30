@@ -8,7 +8,7 @@ public class Familia {
 	private String nombre;
 	
 	public Familia() {
-		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
+		// Constructor vacío requerido por JPA
 	}
 
 	public Long getId() {

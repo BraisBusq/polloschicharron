@@ -33,7 +33,7 @@ public abstract class PersonaPL {
 	private DatosContactoPL datosContacto;
 	
 	protected PersonaPL() {
-		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
+		// Constructor vacío requerido por JPA
 	}
 
 	public Long getId() {

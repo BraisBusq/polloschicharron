@@ -7,7 +7,7 @@ public class Cliente extends Persona {
 	private boolean clienteGold;
 	
 	public Cliente() {
-		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
+		// Constructor vacío requerido por JPA
 	}
 
 	public boolean isClienteGold() {
