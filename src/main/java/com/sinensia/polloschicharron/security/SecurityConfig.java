@@ -62,11 +62,7 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         // Deshabilitar CSRF
-         http
-        .csrf(csrf -> csrf.disable())
-        .authorizeHttpRequests(auth -> auth
-            .anyRequest().permitAll()  // <-- permite todas las rutas sin autenticación
-        );
+        http.csrf(csrf -> csrf.disable());
 
         // Manejo de excepciones y autenticación
         http.exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler));
