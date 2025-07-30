@@ -73,7 +73,7 @@ public class UsuarioPL implements Serializable{
 	private Set<RolePL> roles = new HashSet<>();
 
 	public UsuarioPL() {
-		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
+		// Constructor vacío requerido por JPA
 	}
 
 	public Long getId() {

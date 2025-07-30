@@ -7,7 +7,7 @@ public class ProductoDTO1 {
 	private String familia;
 	
 	public ProductoDTO1() {
-		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
+		// Constructor vacío requerido por JPA
 	}
 
 	public String getNombre() {

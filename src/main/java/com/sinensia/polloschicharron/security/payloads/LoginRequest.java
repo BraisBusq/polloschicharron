@@ -9,7 +9,7 @@ public class LoginRequest implements Serializable {
 	private String password;
 	
 	public LoginRequest() {
-		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
+		// Constructor vacío requerido por JPA
 	}
 
 	public String getUsername() {
