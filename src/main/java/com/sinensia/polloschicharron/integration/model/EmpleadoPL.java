@@ -11,7 +11,7 @@ public class EmpleadoPL extends PersonaPL {
 	private String licenciaManipuladorAlimentos;
 
 	public EmpleadoPL() {
-		throw new UnsupportedOperationException("notImplemented() cannot be performed because ...");
+		// Constructor vacío requerido por JPA
 	}
 
 	public String getLicenciaManipuladorAlimentos() {
